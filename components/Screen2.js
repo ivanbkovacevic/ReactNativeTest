@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import { Text, View,Button } from 'react-native';
 
 
-export default class Test2 extends React.Component {
+export default class Screen2 extends React.Component {
+  static navigationOptions = {
+    title: 'Screen2',
+    headerStyle: {
+      backgroundColor: 'black',
+    },
+    headerTintColor: 'red',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  };
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>

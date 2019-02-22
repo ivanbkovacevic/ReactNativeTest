@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View,Button,StyleSheet } from 'react-native';
 
 
-export default class Test4 extends React.Component {
+export default class Screen4 extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>

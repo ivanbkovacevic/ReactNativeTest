@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View,Button,StyleSheet,TouchableHighlight,Image,ImageBackground } from 'react-native';
-import {createStackNavigator,createDrawerNavigator, createAppContainer} from 'react-navigation';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 import Screen1 from './components/Screen1';
 import Screen2 from './components/Screen2';
 import Screen3 from './components/Screen3';
@@ -8,13 +8,11 @@ import Screen4 from './components/Screen4';
 import Invites from './components/Invites';
 import Messages from './components/Messages';
 
- class App extends React.Component {
-
+export default class Navigation2 extends React.Component {
   render() {
     return (
       <View style={styles.mainContainer}> 
-          <Button onPress={()=>this.props.navigation.navigate('Home')} title="OOO"></Button>
-        
+      <Text>navigation2</Text>
           <ImageBackground source={require('./assets/header_background_main_screen.jpg')} style={styles.imgContainer}>
               <View style={styles.iconContainer}>
                   <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen1')} ><Image style={{height:40,width:40}} source={require('./assets/icons/topbar_alarm_icon.png')} /></TouchableHighlight>
@@ -37,7 +35,6 @@ import Messages from './components/Messages';
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -84,47 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const customDrawer=(props)=>{
-  return(
-    <View style={{flex: 1,
-      alignSelf: 'stretch',
-      justifyContent:"center"}}>
-    
-    <Image  style={{ flex: 1,
-                  alignSelf: 'stretch',
-                  width: undefined,
-                  height: undefined}}  
-                  resizeMode="cover"
-                  source={require('./assets/screens/12_Side_Menu.jpg')}/>  
-  </View>
-  )
 
-}
-
-const AppDrawerNavigator=createDrawerNavigator({
-   Home:{
-     screen:App
-   },
-   screen1:Screen1,
-   messages:Messages,
-   invites:Invites
-},
-{
-  initialRouteName:'Home',
-  contentComponent:customDrawer
-  
-});
-
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: AppDrawerNavigator
-  },
-  screen1:Screen1,
-  screen2:Screen2,
-  screen3:Screen3,
-  screen4:Screen4,
-  invites:Invites,
-  messages:Messages
-});
-
-export default createAppContainer(AppNavigator);
