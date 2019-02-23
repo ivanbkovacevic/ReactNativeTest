@@ -1,28 +1,74 @@
 import React, { Component } from 'react';
-import { Text, View,Button,StyleSheet } from 'react-native';
+import { Text, View,Button,StyleSheet,TouchableHighlight,Image,ImageBackground } from 'react-native';
 
 
 export default class Screen4 extends React.Component {
   render() {
+    let iconContainer=  <View style={styles.iconContainer}>
+    <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen1')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_alarm_icon.png')} /></TouchableHighlight>
+    <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen2')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_globe_icon.png')} /></TouchableHighlight>
+    <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen3')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_star_icon.png')} /></TouchableHighlight>
+    <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen4')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_users_icon.png')} /></TouchableHighlight>
+ </View>
+ let subNavigation=  <View style={styles.subNavigation}>
+ <TouchableHighlight onPress={()=>this.props.navigation.navigate('invites')}><Text style={{color:"blue",marginLeft:20}}>Invites</Text></TouchableHighlight>
+ <TouchableHighlight onPress={()=>this.props.navigation.navigate('messages')}><Text style={{color:"blue",marginLeft:20}}>Messages</Text></TouchableHighlight>
+</View>
+
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text style={styles.bigBlue}>TEST4 Screen</Text>
-        <Button style={styles.bigBlue} onPress={()=>this.props.navigation.navigate('Home')} title="GO to the HomeScreen"></Button>
-        <Button onPress={()=>this.props.navigation.navigate('test2')} title="GO to the TEST2"></Button>
-        <Button onPress={()=>this.props.navigation.navigate('test3')} title="GO to the TEST3"></Button>
-        <Button onPress={()=>this.props.navigation.navigate('test1')} title="GO to the TEST1"></Button>
+      <View style={styles.mainContainer}> 
+       <ImageBackground source={require('../assets/header_background_main_screen.jpg')} style={styles.imgContainer}>
+        {iconContainer}
+           </ImageBackground>   
+          {subNavigation}
+           <Image  style={{ flex: 2,
+                  alignSelf: 'stretch',
+                  width: undefined,
+                  height: undefined}}  
+                  resizeMode="cover"
+                  source={require('../assets/screens/04.2.2_Main_Friends.jpg')}/>
+                 
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    bigBlue: {
-      color: 'blue',
-      fontWeight: 'bold',
-      fontSize: 30,
-    },
-    red: {
-      color: 'red',
-    },
-  });
+  mainContainer: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 30,
+    backgroundColor:"purple",
+    flex: 1,
+    alignItems: "stretch",
+    justifyContent: "flex-start"
+  },
+  imgContainer:{
+    flex:1,
+    flexDirection:'row',
+    alignItems:"flex-end",
+    justifyContent:"center",
+    maxHeight:200
+  },
+  subNavigation:{
+    flex:1,
+    maxHeight:50,
+    flexDirection:"row",
+    alignItems: "center",
+    backgroundColor:"white",
+    justifyContent: 'flex-start',
+  },
+  iconContainer:{
+    backgroundColor:"black",
+    opacity:0.5,
+    padding:"3%",
+    flex: 1,
+    flexDirection:'row',
+    alignItems: "center",
+    justifyContent: "space-between",
+    maxHeight:"50%"
+  },
+  icons:{
+    maxHeight:"50%"
+  }
+});

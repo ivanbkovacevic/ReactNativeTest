@@ -4,18 +4,22 @@ import { Text, View,Button,StyleSheet,TouchableHighlight,Image,ImageBackground }
 
 export default class Messages extends React.Component {
   render() {
+    let iconContainer= <View style={styles.iconContainer}>
+    <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen1')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_alarm_icon.png')} /></TouchableHighlight>
+    <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen2')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_globe_icon.png')} /></TouchableHighlight>
+    <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen3')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_star_icon.png')} /></TouchableHighlight>
+    <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen4')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_users_icon.png')} /></TouchableHighlight>
+ </View>
+ let subNavigation=<View style={styles.subNavigation}>
+ <TouchableHighlight onPress={()=>this.props.navigation.navigate('invites')}><Text style={{color:"blue",marginLeft:20}}>Invites</Text></TouchableHighlight>
+ <TouchableHighlight onPress={()=>this.props.navigation.navigate('messages')}><Text style={{color:"blue",marginLeft:20}}>Messages</Text></TouchableHighlight>
+</View>;
     return (
       <View style={styles.mainContainer}> 
-      <Button onPress={()=>this.props.navigation.toggleDrawer()} title="OOO"></Button>
        <ImageBackground source={require('../assets/header_background_main_screen.jpg')} style={styles.imgContainer}>
-          <View style={styles.iconContainer}>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen1')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_alarm_icon.png')} /></TouchableHighlight>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen2')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_users_icon.png')} /></TouchableHighlight>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen3')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_star_icon.png')} /></TouchableHighlight>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen4')} ><Image style={{height:40,width:40}} source={require('../assets/icons/topbar_globe_icon.png')} /></TouchableHighlight>
-               </View>
-           </ImageBackground>   
-
+             {iconContainer}
+       </ImageBackground>   
+            {subNavigation}
            <View style={styles.messagesContainer}>
               <View style={styles.messagesSubContainer}>
                  <Image  style={{ 
@@ -79,6 +83,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     maxHeight:"50%"
+  },
+  subNavigation:{
+    flex:1,
+    maxHeight:50,
+    flexDirection:"row",
+    alignItems: "center",
+    backgroundColor:"white",
+    justifyContent: 'flex-start',
   },
   icons:{
     maxHeight:"50%"
