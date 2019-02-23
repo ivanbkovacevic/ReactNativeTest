@@ -16,40 +16,79 @@ export default class Messages extends React.Component {
 </View>;
     return (
       <View style={styles.mainContainer}> 
-       <ImageBackground source={require('../assets/header_background_main_screen.jpg')} style={styles.imgContainer}>
-             {iconContainer}
-       </ImageBackground>   
-            {subNavigation}
+          <ImageBackground source={require('../assets/header_background_main_screen.jpg')} style={styles.imgContainer}>
+                {iconContainer}
+          </ImageBackground>   
+                {subNavigation}
+
            <View style={styles.messagesContainer}>
               <View style={styles.messagesSubContainer}>
                  <Image  style={{ 
-                  alignSelf: 'center',
-                  width: 60,
-                  height: 60}}  
+                  alignSelf:"flex-start",
+                  width: 70,
+                  height: 70}}  
                   resizeMode="contain" source={require('../assets/faces/face_1.jpg')}/>
-           
-                 <View>
-                    <Text style={{fontSize:18,fontWeight:"bold",color:"red"}}>Pera Peric</Text>
-                    <Text style={{fontSize:10}}>lorem nvjsvnjsnjvnjsvj vjsnvjnsjvjsjvn</Text>
+                 <View style={styles.textContainer}>
+                    <Text style={{fontSize:18,fontWeight:"bold"}}>Pera Peric</Text>
+                    <Text style={{fontSize:10}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr </Text>
                  </View>
-                 <View>
-                    <Text>P</Text>
-                    <Text style={{fontSize:18}}>10</Text>
+                 <View style={styles.pointsContainer}>
+                    <Text style={{fontSize:18}}>P</Text>
+                    <Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>10</Text>
                  </View>
-             
               </View>
+
               <View style={styles.messagesSubContainer}>
-              <Image style={{height:40,width:40}} source={require('../assets/faces/face_2.jpg')}/>
-              <Text>llorem ipsum  reeeeeeeeee</Text>
+                 <Image  style={{ 
+                  alignSelf:"flex-start",
+                  width: 70,
+                  height: 70}}  
+                  resizeMode="contain" source={require('../assets/faces/face_1.jpg')}/>
+                 <View style={styles.textContainer}>
+                    <Text style={{fontSize:18,fontWeight:"bold"}}>Pera Peric</Text>
+                    <Text style={{fontSize:10}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr </Text>
+                 </View>
+                 <View style={styles.pointsContainer}>
+                    <Text style={{fontSize:18}}>P</Text>
+                    <Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>10</Text>
+                 </View>
               </View>
+
               <View style={styles.messagesSubContainer}>
-              <Image style={{height:40,width:40}} source={require('../assets/faces/face_3.jpg')}/>
-              <Text>llorem ipsum  reeeeeeeeee</Text>
+                 <Image  style={{ 
+                  alignSelf:"flex-start",
+                  width: 70,
+                  height: 70}}  
+                  resizeMode="contain" source={require('../assets/faces/face_1.jpg')}/>
+                 <View style={styles.textContainer}>
+                    <Text style={{fontSize:18,fontWeight:"bold"}}>Pera Peric</Text>
+                    <Text style={{fontSize:10}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr </Text>
+                 </View>
+                 <View style={styles.pointsContainer}>
+                    <Text style={{fontSize:18}}>P</Text>
+                    <Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>10</Text>
+                 </View>
               </View>
+
               <View style={styles.messagesSubContainer}>
-              <Image style={{height:40,width:40}} source={require('../assets/faces/face_4.jpg')}/>
-              <Text>llorem ipsum  reeeeeeeeee</Text>
+                 <Image  style={{ 
+                  alignSelf:"flex-start",
+                  width: 70,
+                  height: 70}}  
+                  resizeMode="contain" source={require('../assets/faces/face_1.jpg')}/>
+                 <View style={styles.textContainer}>
+                    <Text style={{fontSize:18,fontWeight:"bold"}}>Pera Peric</Text>
+                    <Text style={{fontSize:10}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr </Text>
+                 </View>
+                 <View style={styles.pointsContainer}>
+                    <Text style={{fontSize:18}}>P</Text>
+                    <Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>10</Text>
+                 </View>
               </View>
+
+
+
+          
            </View>
       </View>
     );
@@ -63,7 +102,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     backgroundColor:"purple",
     flex: 1,
-    alignItems: "stretch",
     justifyContent: "flex-start"
   },
   imgContainer:{
@@ -72,7 +110,6 @@ const styles = StyleSheet.create({
     alignItems:"flex-end",
     justifyContent:"center",
     maxHeight:200
-   
   },
   iconContainer:{
     backgroundColor:"black",
@@ -97,17 +134,30 @@ const styles = StyleSheet.create({
   },
   messagesContainer:{
       flex:1,
-      backgroundColor:"green",
-      alignItems:"stretch",
-      justifyContent:"flex-end"
+      backgroundColor:"white",
+      justifyContent:"flex-start"
     },
     messagesSubContainer:{
       flex:1,
       padding:"3%",
       backgroundColor:"orange",
       flexDirection:"row",
-      alignItems:"center",
+      alignItems:"flex-start",
       justifyContent:"space-between"
+    },
+    textContainer:{
+      flex:4,
+      backgroundColor:"red",
+      alignItems:"flex-start",
+      justifyContent:"flex-start",
+      padding:"3%"
+    },
+    pointsContainer:{
+      flex:1,
+      backgroundColor:"yellow",
+      alignItems:"center",
+      alignSelf:"center",
+      justifyContent:"center"
     }
   
 });

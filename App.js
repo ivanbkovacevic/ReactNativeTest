@@ -7,8 +7,10 @@ import Screen3 from './components/Screen3';
 import Screen4 from './components/Screen4';
 import Invites from './components/Invites';
 import Messages from './components/Messages';
+import Test from './components/Test';
 
  class App extends React.Component {
+
   render() {
 
     let iconContainer=<View style={styles.iconContainer}>
@@ -21,24 +23,17 @@ import Messages from './components/Messages';
     let subNavigation= <View style={styles.subNavigation}>
       <TouchableHighlight onPress={()=>this.props.navigation.navigate('invites')}><Text style={{color:"blue",marginLeft:20}}>Invites</Text></TouchableHighlight>
       <TouchableHighlight onPress={()=>this.props.navigation.navigate('messages')}><Text style={{color:"blue",marginLeft:20}}>Messages</Text></TouchableHighlight>
+      <TouchableHighlight onPress={()=>this.props.navigation.navigate('test')}><Text style={{color:"blue",marginLeft:20}}>Test</Text></TouchableHighlight>
     </View>;
     return (
       <View style={styles.mainContainer}> 
           <ImageBackground source={require('./assets/header_background_main_screen.jpg')} style={styles.headerContainer}>
             {iconContainer}
-              {/* <View style={styles.iconContainer}>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen1')} ><Image style={{height:40,width:40}} source={require('./assets/icons/topbar_alarm_icon.png')} /></TouchableHighlight>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen2')} ><Image style={{height:40,width:40}} source={require('./assets/icons/topbar_globe_icon.png')} /></TouchableHighlight>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen3')} ><Image style={{height:40,width:40}} source={require('./assets/icons/topbar_star_icon.png')} /></TouchableHighlight>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('screen4')} ><Image style={{height:40,width:40}} source={require('./assets/icons/topbar_users_icon.png')} /></TouchableHighlight>
-               </View> */}
+          
            </ImageBackground>   
            {subNavigation}
-           {/* <View style={styles.subNavigation}>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('invites')}><Text style={{color:"blue",marginLeft:20}}>Invites</Text></TouchableHighlight>
-                  <TouchableHighlight onPress={()=>this.props.navigation.navigate('messages')}><Text style={{color:"blue",marginLeft:20}}>Messages</Text></TouchableHighlight>
-           </View> */}
-                <Image  style={{ flex: 2,
+         
+                <Image  style={{ flex: 1,
                   alignSelf: 'stretch',
                   width: undefined,
                   height: undefined}}  
@@ -105,7 +100,7 @@ const customDrawer=(props)=>{
                   alignSelf: 'stretch',
                   width: undefined,
                   height: undefined}}  
-                  resizeMode="cover"
+                  resizeMode="contain"
                   source={require('./assets/screens/12_Side_Menu.jpg')}/>  
   </View>
   )
@@ -121,7 +116,8 @@ const AppDrawerNavigator=createDrawerNavigator({
    screen3:Screen3,
    screen4:Screen4,
    messages:Messages,
-   invites:Invites
+   invites:Invites,
+   test:Test
 },
 {
   initialRouteName:'Home',
@@ -130,15 +126,21 @@ const AppDrawerNavigator=createDrawerNavigator({
 });
 
 const AppNavigator = createStackNavigator({
-  Home: {
-    screen: AppDrawerNavigator
-  },
+  Home: {screen: AppDrawerNavigator,
+    navigationOptions: () => ({
+   
+    headerBackTitle: null,
+    headerTransparent:true
+  })},
   screen1:Screen1,
   screen2:Screen2,
   screen3:Screen3,
   screen4:Screen4,
   invites:Invites,
-  messages:Messages
-});
+  messages:Messages,
+  test:Test
+}
+
+);
 
 export default createAppContainer(AppNavigator);
