@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View,Button,StyleSheet,TouchableHighlight,Image,ImageBackground } from 'react-native';
+import { Text, View,Button,StyleSheet,TouchableHighlight,Image,ImageBackground,FlatList } from 'react-native';
+import Data from "./Data";
 
 
 export default class Messages extends React.Component {
@@ -25,74 +26,35 @@ export default class Messages extends React.Component {
           </ImageBackground>   
                 {subNavigation}
 
-           <View style={styles.messagesContainer}>
-              <View style={styles.messagesSubContainer}>
+   <View style={styles.messagesContainer}>
+           <FlatList 
+                   data={Data}
+                   keyExtractor={item => item.id}
+                   renderItem={({item})=>(
+
+               <View style={styles.messagesSubContainer}>
                  <Image  style={{ 
                   alignSelf:"flex-start",
                   width: 70,
-                  height: 70}}  
-                  resizeMode="contain" source={require('../assets/faces/face_1.jpg')}/>
+                  height: 70}}
+                  resizeMode="contain" 
+                  source={require('../assets/faces/face_3.jpg')} />
                  <View style={styles.textContainer}>
-                    <Text style={{fontSize:18,fontWeight:"bold"}}>Pera Peric</Text>
-                    <Text style={{fontSize:10}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr </Text>
+                    <Text style={{fontSize:18,fontWeight:"bold"}}>{item.name}</Text>
+                    <Text style={{fontSize:10}}>{item.messageText} </Text>
                  </View>
                  <View style={styles.pointsContainer}>
-                    <Text style={{fontSize:18}}>P</Text>
-                    <Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>10</Text>
+                     <View style={styles.clockContainer}>
+                     <Image style={{height:20,width:20}} source={require('../assets/icons/clock_icon.png')} />
+                        <Text style={{fontSize:12,color:"grey"}}>{item.time}</Text>
+                     </View>
+                    <View><Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>{item.points}</Text></View>
                  </View>
-              </View>
-
-              <View style={styles.messagesSubContainer}>
-                 <Image  style={{ 
-                  alignSelf:"flex-start",
-                  width: 70,
-                  height: 70}}  
-                  resizeMode="contain" source={require('../assets/faces/face_1.jpg')}/>
-                 <View style={styles.textContainer}>
-                    <Text style={{fontSize:18,fontWeight:"bold"}}>Pera Peric</Text>
-                    <Text style={{fontSize:10}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr </Text>
-                 </View>
-                 <View style={styles.pointsContainer}>
-                    <Text style={{fontSize:18}}>P</Text>
-                    <Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>10</Text>
-                 </View>
-              </View>
-
-              <View style={styles.messagesSubContainer}>
-                 <Image  style={{ 
-                  alignSelf:"flex-start",
-                  width: 70,
-                  height: 70}}  
-                  resizeMode="contain" source={require('../assets/faces/face_1.jpg')}/>
-                 <View style={styles.textContainer}>
-                    <Text style={{fontSize:18,fontWeight:"bold"}}>Pera Peric</Text>
-                    <Text style={{fontSize:10}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr </Text>
-                 </View>
-                 <View style={styles.pointsContainer}>
-                    <Text style={{fontSize:18}}>P</Text>
-                    <Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>10</Text>
-                 </View>
-              </View>
-
-              <View style={styles.messagesSubContainer}>
-                 <Image  style={{ 
-                  alignSelf:"flex-start",
-                  width: 70,
-                  height: 70}}  
-                  resizeMode="contain" source={require('../assets/faces/face_1.jpg')}/>
-                 <View style={styles.textContainer}>
-                    <Text style={{fontSize:18,fontWeight:"bold"}}>Pera Peric</Text>
-                    <Text style={{fontSize:10}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr </Text>
-                 </View>
-                 <View style={styles.pointsContainer}>
-                    <Text style={{fontSize:18}}>P</Text>
-                    <Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>10</Text>
-                 </View>
-              </View>
-
-
-
-          
+                
+              </View> 
+                  ) }   
+                         
+            /> 
            </View>
       </View>
     );
@@ -131,6 +93,12 @@ const styles = StyleSheet.create({
    alignItems:"center",
    justifyContent: 'space-between',
    },
+   clockContainer:{
+   
+      flexDirection:"row",
+      justifyContent: 'space-between',
+     
+   },
 
   subNavigation:{
     flex:1,
@@ -151,24 +119,26 @@ const styles = StyleSheet.create({
     messagesSubContainer:{
       flex:1,
       padding:"3%",
-      backgroundColor:"orange",
+    
+      borderBottomColor: 'grey',
+      borderBottomWidth: 2,
       flexDirection:"row",
       alignItems:"flex-start",
       justifyContent:"space-between"
     },
     textContainer:{
       flex:4,
-      backgroundColor:"red",
+     
       alignItems:"flex-start",
       justifyContent:"flex-start",
       padding:"3%"
     },
     pointsContainer:{
       flex:1,
-      backgroundColor:"yellow",
+      height:"80%",
+  
       alignItems:"center",
-      alignSelf:"center",
-      justifyContent:"center"
+      justifyContent:"space-between"
     }
   
 });

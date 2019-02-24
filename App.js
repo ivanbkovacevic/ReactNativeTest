@@ -42,8 +42,7 @@ import Test from './components/Test';
                   width: undefined,
                   height: undefined}}  
                   resizeMode="cover"
-                  source={require('./assets/screens/04.4.1_Main_Explore.jpg')}/>   
-                  <Test/>              
+                  source={require('./assets/screens/04.4.1_Main_Explore.jpg')}/>       
       </View>
     );
   }
