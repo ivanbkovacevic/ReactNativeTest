@@ -7,7 +7,7 @@ import Screen3 from './components/Screen3';
 import Screen4 from './components/Screen4';
 import Invites from './components/Invites';
 import Messages from './components/Messages';
-import Test from './components/Test';
+
 
  class App extends React.Component {
 
@@ -127,7 +127,7 @@ const AppDrawerNavigator=createDrawerNavigator({
    screen4:Screen4,
    messages:Messages,
    invites:Invites,
-   test:Test
+
 },
 {
   initialRouteName:'Home',
@@ -147,7 +147,7 @@ const AppNavigator = createStackNavigator({
   screen4:Screen4,
   invites:Invites,
   messages:Messages,
-  test:Test
+
 }
 
 );

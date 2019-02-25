@@ -34,8 +34,7 @@ export default class Screen1 extends React.Component {
                   width: undefined,
                   height: undefined}}  
                   resizeMode="cover"
-                  source={require('../assets/screens/04.1.2_Main_Alerts.jpg')}/>
-                 
+                  source={require('../assets/screens/04.1.2_Main_Alerts.jpg')}/>          
       </View>
     );
   }

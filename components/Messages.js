@@ -49,11 +49,9 @@ export default class Messages extends React.Component {
                         <Text style={{fontSize:12,color:"grey"}}>{item.time}</Text>
                      </View>
                     <View><Text style={{fontSize:18,color:"white",backgroundColor:"purple",padding:5}}>{item.points}</Text></View>
-                 </View>
-                
+                 </View>          
               </View> 
-                  ) }   
-                         
+                  ) }               
             /> 
            </View>
       </View>
@@ -70,7 +68,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start"
   },
-
   headerContainer:{
    flex:1,
    alignItems:"stretch",
@@ -119,7 +116,6 @@ const styles = StyleSheet.create({
     messagesSubContainer:{
       flex:1,
       padding:"3%",
-    
       borderBottomColor: 'grey',
       borderBottomWidth: 2,
       flexDirection:"row",
